@@ -1,13 +1,14 @@
 # python-RPi-GPIO2.spec
 %global pypi_name RPi.GPIO2
+%global extraver a3
 
 Summary: A libgpiod compatibility layer for the RPi.GPIO API
 Name: python-rpi-gpio2
 Version: 0.3.0
-Release: 1.a3%{?dist}
+Release: 1%{?extraver:.%extraver}%{?dist}
 License: GPLv3+
 URL: https://pypi.org/project/RPi.GPIO2/
-Source0: https://github.com/underground-software/%{pypi_name}/archive/v%{version}a3/%{pypi_name}-%{version}a3.tar.gz
+Source0: https://github.com/underground-software/%{pypi_name}/archive/v%{version}a3/%{pypi_name}-%{version}%{?extraver}.tar.gz
 
 Obsoletes: python-rpi-gpio <= 0.7.1
 Provides: python-rpi-gpio
@@ -45,7 +46,7 @@ A set of examples for python-rpi-gpio2
 
 
 %prep
-%autosetup -n %{pypi_name}-%{version}a3
+%autosetup -n %{pypi_name}-%{version}%{?extraver}
 
 # Make sure scripts in the examples directory aren't executable
 chmod 0644 examples/*
